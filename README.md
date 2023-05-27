@@ -1,5 +1,5 @@
 # Subconverter_CustomConfig
-订阅转换自定义规则及策略组，Rule规则片段来源https://github.com/lhie1/Rules
+订阅转换自定义规则及策略组，[Rule](https://github.com/ACL4SSR/ACL4SSR)规则片段来源
 
 
 ## 效果图
