@@ -1,0 +1,460 @@
+# Config (Stash)
+# Author: W1nd
+# GitHub: https://github.com/W1nd
+# Update Date: 2023.11.22
+
+# 下载配置后,请手动添加机场订阅
+# 找到 {远程订阅} 部分，将MyProxy 部分的 url替换为自己的机场订阅链接  
+
+#混合端口
+mixed-port: 7890
+#允许局域网
+allow-lan: true
+#绑定地址
+bind-address: '*'
+#模式:rule（规则） / global（全局代理）/ direct（全局直连）
+ipv6: false
+#开启 IPv6 总开关，关闭阻断所有 IPv6 链接和屏蔽 DNS 请求 AAAA 记录
+mode: Rule
+#日志级别（日志输出级别：分级如后silent / info / warning / error / debug级别越高日志输出量越大）
+log-level: info
+#外部控制器
+external-controller: 127.0.0.1:9090
+
+#DNS设置
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  #DNS服务器
+  default-nameserver:
+    - 114.114.115.115
+    - 119.28.28.28
+    - 223.6.6.6
+    - system
+  #DoH服务器
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.dns.sb/dns-query
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  #列表中的域名将不会被解析为fake ip，这些域名相关的解析请求将会返回它们真实的IP地址
+  fake-ip-filter:
+    - '+.lan'
+    - localhost.ptlogin2.qq.com
+    - '*.battle.net'
+    - '*.blzstatic.cn'
+    - '*.battlenet.com'
+    - '*.battlenet.com.cn'
+    - 'lens.l.google.com'
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - '+.msftncsi.com'
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
+    - 'xbox.*.*.microsoft.com'
+    - 'xbox.*.microsoft.com'         
+    - '+.msftconnecttest.com'
+    - '*.msftncsi.com'
+    - '*.msftconnecttest.com'
+    - '*.mcdn.bilivideo.cn'
+
+#本地代理
+proxies:
+
+#远程订阅
+proxy-providers:
+
+  MyProxy:
+    url: ""
+    # 使用Clash类型订阅链接替换掉引号""内的链接使用。
+    # 或可使用通用订阅链接通过Sub-Store进行订阅转换(用于Stash)。
+    interval: 86400
+    health-check:
+      enable: true
+      interval: 300
+      url: http://www.apple.com/library/test/success.html
+
+  OtherProxy:
+    url: ""
+    # 使用Clash类型订阅链接替换掉引号""内的链接使用。
+    # 或可使用通用订阅链接通过Sub-Store进行订阅转换(用于Stash)。
+    interval: 86400
+    health-check:
+      enable: true
+      interval: 300
+      url: http://www.apple.com/library/test/success.html
+
+#策略组
+proxy-groups:
+
+  - name: 节点选择
+    type: select
+    proxies:
+      - 自动选择
+      - 全球直连
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
+    include-all: true
+
+  - name: 自动选择
+    type: url-test
+    use: 
+       - MyProxy
+       - OtherProxy
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    tolerance: 50
+    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+
+  - name: 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - 全球直连
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png
+
+  - name: 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - 全球直连
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Luffy.png
+
+  - name: NETFLIX
+    type: select
+    proxies:
+      - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
+
+  - name: OpenAI
+    type: select
+    proxies:
+      - 美国专线
+    icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/144px/OpenAI_ChatGPT.png
+
+  - name: 苹果服务
+    type: select
+    proxies:
+      - 全球直连
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
+
+  - name: 微软服务
+    type: select
+    proxies:
+      - 全球直连
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
+
+  - name: 微软云盘
+    type: select
+    proxies:
+      - 全球直连
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png
+
+  - name: 国外媒体
+    type: select
+    proxies:
+      - 节点选择
+      - 全球直连
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
+
+  - name: 国内媒体
+    type: select
+    proxies:
+      - 全球直连
+      - 节点选择
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/WeTV.png
+
+  - name: 电报消息
+    type: select
+    proxies:
+      - 节点选择
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
+
+  - name: Paypal
+    type: select
+    proxies:
+      - 全球直连
+      - 节点选择
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/PayPal.png
+
+  - name: Steam
+    type: select
+    proxies:
+      - 全球直连
+      - 节点选择
+      - 香港专线
+      - 美国专线
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
+
+  - name: 香港专线
+    type: url-test
+    use:
+      - MyProxy
+    filter: 港|🇭🇰|HK|(?i)Hong
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+
+  - name: 新加坡专线
+    type: url-test
+    use:
+      - MyProxy
+    filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+
+  - name: 日本专线
+    type: url-test
+    use:
+      - MyProxy
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+
+  - name: 台湾专线
+    type: url-test
+    use:
+      - MyProxy
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+
+  - name: 美国专线
+    type: select
+    use:
+      - MyProxy
+      - OtherProxy
+    filter: 美|🇺🇲|US|(?i)States|American
+    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+  
+  - name: 漏网之鱼
+    type: select
+    proxies:
+      - 节点选择
+      - DIRECT
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png
+
+  - name: 全球直连
+    type: select
+    proxies:
+      - DIRECT
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png
+
+#远程规则集合
+rule-providers:
+
+  全球直连1-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/LocalAreaNetwork.yaml
+
+  全球直连2-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/UnBan.yaml
+
+  全球直连3-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/SteamCN.yaml
+
+  全球直连4-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ChinaIp.yaml
+
+  全球直连5-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ChinaDomain.yaml
+
+  全球直连6-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ChinaCompanyIp.yaml
+
+  全球直连7-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Download.yaml
+
+  Apple-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Apple.yaml
+
+  微软云盘-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/OneDrive.yaml
+
+  微软服务-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/Microsoft.yaml
+
+  PayPal-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PayPal/PayPal_No_Resolve.yaml
+
+  全球拦截-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/BanAD.yaml
+
+  应用净化-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/BanProgramAD.yaml
+
+  Steam-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/Steam.yaml
+
+  Telegram-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/Telegram.yaml
+
+  Netflix-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/Netflix.yaml
+
+  OpenAI-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/W1nd/Subconverter_CustomConfig@master/AI.yaml
+
+  ChinaMedia-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ChinaMedia.yaml
+
+  ProxyMedia-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ProxyMedia.yaml
+
+  Japan1-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/HuluJapan.yaml
+
+  Japan2-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/Japonx.yaml
+
+  Taiwan1-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/KKBOX.yaml
+
+  Taiwan2-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/LineTV.yaml
+
+  HongKong1-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/EncoreTVB.yaml
+
+  HongKong2-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/MyTVSuper.yaml
+
+#分流规则引用
+rules:
+  - SCRIPT,quic,REJECT
+  - RULE-SET,全球直连1-rules,全球直连
+  - RULE-SET,全球直连2-rules,全球直连
+  - RULE-SET,全球直连3-rules,全球直连
+  - RULE-SET,全球直连4-rules,全球直连
+  - RULE-SET,全球直连5-rules,全球直连
+  - RULE-SET,全球直连6-rules,全球直连
+  - RULE-SET,全球直连7-rules,全球直连
+  - RULE-SET,Apple-rules,苹果服务
+  - RULE-SET,微软云盘-rules,微软云盘
+  - RULE-SET,微软服务-rules,微软服务
+  - RULE-SET,PayPal-rules,Paypal
+  - RULE-SET,全球拦截-rules,全球拦截
+  - RULE-SET,应用净化-rules,应用净化
+  - RULE-SET,Steam-rules,Steam
+  - RULE-SET,Telegram-rules,电报消息
+  - RULE-SET,Netflix-rules,NETFLIX
+  - RULE-SET,OpenAI-rules,OpenAI
+  - RULE-SET,ChinaMedia-rules,国内媒体
+  - RULE-SET,ProxyMedia-rules,国外媒体
+  - RULE-SET,Japan1-rules,日本专线
+  - RULE-SET,Japan2-rules,日本专线
+  - RULE-SET,Taiwan1-rules,台湾专线
+  - RULE-SET,Taiwan2-rules,台湾专线
+  - RULE-SET,HongKong1-rules,香港专线
+  - RULE-SET,HongKong2-rules,香港专线
+  - GEOIP,CN,全球直连
+  - MATCH,漏网之鱼
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
