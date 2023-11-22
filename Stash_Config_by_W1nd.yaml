@@ -94,7 +94,6 @@ proxy-groups:
       - 自动选择
       - 全球直连
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
-    include-all: true
 
   - name: 自动选择
     type: url-test
