@@ -299,7 +299,7 @@ rule-providers:
     behavior: classical
     interval: 86400
     format: yaml
-    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ChinaIp.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaIPs/ChinaIPs_Classical_No_Resolve.yaml
 
   全球直连5-rules:
     behavior: classical
@@ -308,12 +308,6 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ChinaDomain.yaml
 
   全球直连6-rules:
-    behavior: classical
-    interval: 86400
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/ChinaCompanyIp.yaml
-
-  全球直连7-rules:
     behavior: classical
     interval: 86400
     format: yaml
@@ -436,7 +430,6 @@ rules:
   - RULE-SET,全球直连4-rules,全球直连
   - RULE-SET,全球直连5-rules,全球直连
   - RULE-SET,全球直连6-rules,全球直连
-  - RULE-SET,全球直连7-rules,全球直连
   - RULE-SET,Apple-rules,苹果服务
   - RULE-SET,微软云盘-rules,微软云盘
   - RULE-SET,微软服务-rules,微软服务
