@@ -93,6 +93,9 @@ proxy-groups:
     proxies:
       - 自动选择
       - 全球直连
+    use:
+      - MyProxy
+      - OtherProxy
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
 
   - name: 自动选择
