@@ -96,6 +96,7 @@ proxy-groups:
     use:
       - MyProxy
       - OtherProxy
+    include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
 
   - name: 自动选择
