@@ -138,7 +138,7 @@ proxy-groups:
     type: select
     proxies:
       - 美国专线
-    icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/144px/OpenAI_ChatGPT.png
+    icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/144px/OpenAI_ChatGPT.png
 
   - name: 苹果服务
     type: select
