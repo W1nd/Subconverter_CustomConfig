@@ -101,9 +101,6 @@ proxy-groups:
 
   - name: 自动选择
     type: url-test
-    use: 
-       - MyProxy
-       - OtherProxy
     url: "http://www.apple.com/library/test/success.html"
     interval: 300
     lazy: true
