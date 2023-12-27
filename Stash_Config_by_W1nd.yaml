@@ -211,8 +211,6 @@ proxy-groups:
 
   - name: 香港专线
     type: url-test
-    use:
-      - MyProxy
     filter: 港|🇭🇰|HK|(?i)Hong
     url: "http://www.apple.com/library/test/success.html"
     interval: 300
@@ -222,8 +220,6 @@ proxy-groups:
 
   - name: 新加坡专线
     type: url-test
-    use:
-      - MyProxy
     filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
     url: "http://www.apple.com/library/test/success.html"
     interval: 300
@@ -233,8 +229,6 @@ proxy-groups:
 
   - name: 日本专线
     type: url-test
-    use:
-      - MyProxy
     filter: 日|🇯🇵|东京|JP|(?i)Japan
     url: "http://www.apple.com/library/test/success.html"
     interval: 300
@@ -244,8 +238,6 @@ proxy-groups:
 
   - name: 台湾专线
     type: url-test
-    use:
-      - MyProxy
     filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
     url: "http://www.apple.com/library/test/success.html"
     interval: 300
@@ -255,9 +247,6 @@ proxy-groups:
 
   - name: 美国专线
     type: select
-    use:
-      - MyProxy
-      - OtherProxy
     filter: 美|🇺🇲|US|(?i)States|American
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
