@@ -1,7 +1,7 @@
 # Config (Stash)
 # Author: W1nd
 # GitHub: https://github.com/W1nd
-# Update Date: 2023.11.22
+# Update Date: 2024.2.8
 
 # 下载配置后,请手动添加机场订阅
 # 找到 {远程订阅} 部分，将MyProxy 部分的 url替换为自己的机场订阅链接  
@@ -75,31 +75,20 @@ proxy-providers:
       interval: 300
       url: http://www.apple.com/library/test/success.html
 
-  OtherProxy:
-    url: ""
-    # 使用Clash类型订阅链接替换掉引号""内的链接使用。
-    # 或可使用通用订阅链接通过Sub-Store进行订阅转换(用于Stash)。
-    interval: 86400
-    health-check:
-      enable: true
-      interval: 300
-      url: http://www.apple.com/library/test/success.html
-
 #策略组
 proxy-groups:
 
-  - name: 节点选择
+  - name: 网速超快
     type: select
     proxies:
-      - 自动选择
+      - 延迟优选节点
       - 全球直连
     use:
       - MyProxy
-      - OtherProxy
     include-all: false
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
 
-  - name: 自动选择
+  - name: 延迟优选节点
     type: url-test
     url: "http://www.apple.com/library/test/success.html"
     interval: 300
@@ -107,6 +96,56 @@ proxy-groups:
     tolerance: 50
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+
+    - name: 香港延迟优选
+    type: url-test
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    tolerance: 50
+    filter: 港|🇭🇰|HK|(?i)Hong
+    include-all: true
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/Hongkong.png
+
+  - name: 新加坡延迟优选
+    type: url-test
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    tolerance: 50
+    filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
+    include-all: true
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/singapore(1).png
+
+  - name: 日本延迟优选
+    type: url-test
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    tolerance: 50
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    include-all: true
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/Japan.png
+
+  - name: 台湾延迟优选
+    type: url-test
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    tolerance: 50
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    include-all: true
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/taiwan(2).png
+
+  - name: 美国延迟优选
+    type: url-test
+    url: "http://www.apple.com/library/test/success.html"
+    interval: 300
+    lazy: true
+    tolerance: 50
+    filter: 美|🇺🇲|US|(?i)States|American
+    include-all: true
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/US.png
 
   - name: 全球拦截
     type: select
@@ -125,120 +164,173 @@ proxy-groups:
   - name: NETFLIX
     type: select
     proxies:
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
       - 香港专线
       - 日本专线
       - 台湾专线
       - 新加坡专线
+      - 网速超快
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
 
   - name: OpenAI
     type: select
     proxies:
       - 美国专线
+      - 网速超快
     icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/144px/OpenAI_ChatGPT.png
 
   - name: 苹果服务
     type: select
     proxies:
       - 全球直连
-      - 香港专线
+      - 网速超快
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
 
   - name: 微软服务
     type: select
     proxies:
       - 全球直连
-      - 香港专线
+      - 网速超快
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
 
   - name: 微软云盘
     type: select
     proxies:
       - 全球直连
-      - 香港专线
+      - 网速超快
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png
 
   - name: 国外媒体
     type: select
     proxies:
-      - 节点选择
+      - 网速超快
       - 全球直连
-      - 香港专线
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
 
   - name: 国内媒体
     type: select
     proxies:
       - 全球直连
-      - 节点选择
-      - 香港专线
+      - 网速超快
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/WeTV.png
-
-  - name: 电报消息
-    type: select
-    proxies:
-      - 节点选择
-      - 香港专线
-      - 美国专线
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
 
   - name: Paypal
     type: select
     proxies:
       - 全球直连
-      - 节点选择
-      - 香港专线
+      - 网速超快
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/PayPal.png
 
   - name: Steam
     type: select
     proxies:
       - 全球直连
-      - 节点选择
-      - 香港专线
+      - 网速超快
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
       - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
 
   - name: 香港专线
-    type: url-test
+    type: select
     filter: 港|🇭🇰|HK|(?i)Hong
-    url: "http://www.apple.com/library/test/success.html"
-    interval: 300
-    lazy: true
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
 
   - name: 新加坡专线
-    type: url-test
+    type: select
     filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
-    url: "http://www.apple.com/library/test/success.html"
-    interval: 300
-    lazy: true
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
 
   - name: 日本专线
-    type: url-test
+    type: select
     filter: 日|🇯🇵|东京|JP|(?i)Japan
-    url: "http://www.apple.com/library/test/success.html"
-    interval: 300
-    lazy: true
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
 
   - name: 台湾专线
-    type: url-test
+    type: select
     filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
-    url: "http://www.apple.com/library/test/success.html"
-    interval: 300
-    lazy: true
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
 
@@ -251,8 +343,19 @@ proxy-groups:
   - name: 漏网之鱼
     type: select
     proxies:
-      - 节点选择
-      - DIRECT
+      - 网速超快
+      - 全球直连
+      - 延迟优选节点
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
+      - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png
 
   - name: 全球直连
@@ -424,7 +527,7 @@ rules:
   - RULE-SET,全球拦截-rules,全球拦截
   - RULE-SET,应用净化-rules,应用净化
   - RULE-SET,Steam-rules,Steam
-  - RULE-SET,Telegram-rules,电报消息
+  - RULE-SET,Telegram-rules,网速超快
   - RULE-SET,Netflix-rules,NETFLIX
   - RULE-SET,OpenAI-rules,OpenAI
   - RULE-SET,ChinaMedia-rules,国内媒体
