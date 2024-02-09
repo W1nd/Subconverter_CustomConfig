@@ -95,7 +95,7 @@ proxy-groups:
       - 新加坡专线
     use:
       - MyProxy
-    include-all: true
+    include-all: false
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
 
   - name: 延迟优选节点
