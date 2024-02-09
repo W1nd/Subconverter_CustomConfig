@@ -83,9 +83,19 @@ proxy-groups:
     proxies:
       - 延迟优选节点
       - 全球直连
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
+      - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
     use:
       - MyProxy
-    include-all: false
+    include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
 
   - name: 延迟优选节点
