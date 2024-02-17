@@ -320,6 +320,22 @@ proxy-groups:
       - 新加坡专线
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png
 
+  - name: TikTok
+    type: select
+    proxies:
+      - 美国专线
+      - 香港专线
+      - 日本专线
+      - 台湾专线
+      - 新加坡专线
+      - 美国延迟优选
+      - 香港延迟优选
+      - 日本延迟优选
+      - 台湾延迟优选
+      - 新加坡延迟优选
+      - 网速超快
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/chxm1023/TikTok_2.png
+
   - name: 香港专线
     type: select
     filter: 港|🇭🇰|HK|(?i)Hong
@@ -455,6 +471,12 @@ rule-providers:
     format: yaml
     url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Providers/Ruleset/Steam.yaml
 
+  TikTok-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
+
   Telegram-rules:
     behavior: classical
     interval: 86400
@@ -543,6 +565,7 @@ rules:
   - RULE-SET,全球拦截-rules,全球拦截
   - RULE-SET,应用净化-rules,应用净化
   - RULE-SET,Steam-rules,Steam
+  - RULE-SET,TikTok-rules,TikTok
   - RULE-SET,Telegram-rules,网速超快
   - RULE-SET,Netflix-rules,NETFLIX
   - RULE-SET,OpenAI-rules,OpenAI
