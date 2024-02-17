@@ -324,31 +324,31 @@ proxy-groups:
     type: select
     filter: 港|🇭🇰|HK|(?i)Hong
     include-all: true
-    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/Hongkong.png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 
   - name: 新加坡专线
     type: select
     filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
     include-all: true
-    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/singapore(1).png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 
   - name: 日本专线
     type: select
     filter: 日|🇯🇵|东京|JP|(?i)Japan
     include-all: true
-    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/zl-icon-jp-flag.png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 
   - name: 台湾专线
     type: select
     filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
     include-all: true
-    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/taiwan(2).png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
 
   - name: 美国专线
     type: select
     filter: 美|🇺🇲|US|(?i)States|American
     include-all: true
-    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/US.png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
   
   - name: 漏网之鱼
     type: select
