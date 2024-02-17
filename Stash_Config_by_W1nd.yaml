@@ -192,7 +192,7 @@ proxy-groups:
     proxies:
       - 美国专线
       - 网速超快
-    icon: https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/144px/OpenAI_ChatGPT.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/chxm1023/ChatGPT2.png
 
   - name: 苹果服务
     type: select
@@ -264,7 +264,7 @@ proxy-groups:
       - 日本专线
       - 台湾专线
       - 新加坡专线
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/GMedia.png
 
   - name: 国内媒体
     type: select
@@ -282,7 +282,7 @@ proxy-groups:
       - 日本专线
       - 台湾专线
       - 新加坡专线
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/WeTV.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/CMedia.png
 
   - name: Paypal
     type: select
@@ -324,31 +324,31 @@ proxy-groups:
     type: select
     filter: 港|🇭🇰|HK|(?i)Hong
     include-all: true
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/Hongkong.png
 
   - name: 新加坡专线
     type: select
     filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
     include-all: true
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/singapore(1).png
 
   - name: 日本专线
     type: select
     filter: 日|🇯🇵|东京|JP|(?i)Japan
     include-all: true
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/zl-icon-jp-flag.png
 
   - name: 台湾专线
     type: select
     filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
     include-all: true
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/taiwan(2).png
 
   - name: 美国专线
     type: select
     filter: 美|🇺🇲|US|(?i)States|American
     include-all: true
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/US.png
   
   - name: 漏网之鱼
     type: select
@@ -366,13 +366,13 @@ proxy-groups:
       - 日本专线
       - 台湾专线
       - 新加坡专线
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/Twoandz9/Fishport0.png
 
   - name: 全球直连
     type: select
     proxies:
       - DIRECT
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/liuliang(5).png
 
 #远程规则集合
 rule-providers:
