@@ -495,11 +495,29 @@ rule-providers:
     format: yaml
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
 
+  AI-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://raw.githubusercontent.com/W1nd/Subconverter_CustomConfig/master/AI.yaml
+
   Gemini-rules:
     behavior: classical
     interval: 86400
     format: yaml
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BardAI/BardAI.yaml
+
+  Anthropic-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Anthropic/Anthropic.yaml
+
+  Claude-rules:
+    behavior: classical
+    interval: 86400
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
 
   ChinaMedia-rules:
     behavior: classical
@@ -569,7 +587,10 @@ rules:
   - RULE-SET,Telegram-rules,网速超快
   - RULE-SET,Netflix-rules,NETFLIX
   - RULE-SET,OpenAI-rules,OpenAI
+  - RULE-SET,AI-rules,OpenAI
   - RULE-SET,Gemini-rules,OpenAI
+  - RULE-SET,Anthropic-rules,OpenAI
+  - RULE-SET,Claude-rules,OpenAI
   - RULE-SET,ChinaMedia-rules,国内媒体
   - RULE-SET,ProxyMedia-rules,国外媒体
   - RULE-SET,Japan1-rules,日本专线
